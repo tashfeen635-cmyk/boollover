@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f1e8" />
+    <meta
+      name="description"
+      content="A lovely little corner for book lovers. Discover books, bookmarks, book sleeves, tote bags and more."
+    />
+    <title>The Bookish Edit — A Little Place for Book Lovers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f7f1e8;
+        --paper: #fffdf8;
+        --ink: #29251f;
+        --muted: #756d62;
+        --wine: #713b4b;
+        --wine-dark: #512b38;
+        --rose: #d9b9b5;
+        --sage: #aab3a0;
+        --line: rgba(67, 51, 42, 0.13);
+        --shadow: 0 24px 70px rgba(61, 42, 35, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--cream);
+        font-family: "DM Sans", sans-serif;
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .announcement {
+        background: var(--wine-dark);
+        color: #fff8f1;
+        text-align: center;
+        padding: 9px 16px;
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+      header {
+        width: min(1180px, calc(100% - 48px));
+        margin: auto;
+        padding: 10px 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .logo {
+        font-family: "Playfair Display", serif;
+        font-size: 25px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .logo span {
+        color: var(--wine);
+      }
+      nav {
+        display: flex;
+        gap: 30px;
+        color: var(--muted);
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      nav a:hover {
+        color: var(--wine);
+      }
+      .nav-cta {
+        border: 1px solid var(--wine);
+        color: var(--wine);
+        padding: 11px 18px;
+        border-radius: 2px;
+        font-size: 11px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        transition: 0.25s;
+        border-radius: 20px;
+      }
+      .nav-cta:hover {
+        background: var(--wine);
+        color: white;
+      }
+      .hero {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0px auto 90px;
+        min-height: 610px;
+        display: grid;
+        grid-template-columns: 1fr 1.02fr;
+        background: var(--paper);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+      .hero-copy {
+        padding: clamp(42px, 7vw, 92px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+      .eyebrow {
+        color: var(--wine);
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 500;
+      }
+      h1 {
+        font-size: clamp(48px, 6.2vw, 78px);
+        line-height: 1.04;
+        letter-spacing: -0.055em;
+        margin: 22px 0;
+      }
+      h1 em {
+        color: var(--wine);
+        font-weight: 500;
+      }
+      .hero-copy p {
+        max-width: 430px;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.95;
+        margin: 0 0 30px;
+      }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        background: var(--wine);
+        color: white;
+        padding: 15px 23px;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        border: 1px solid var(--wine);
+        transition: 0.25s;
+        cursor: pointer;
+        border-radius: 30px;
+      }
+      .button:hover {
+        background: var(--wine-dark);
+        transform: translateY(-2px);
+      }
+      .button.secondary {
+        background: transparent;
+        color: var(--wine);
+      }
+      .button.secondary:hover {
+        background: var(--wine);
+        color: white;
+      }
+      .hero-image {
+        min-height: 560px;
+        position: relative;
+        background: #d8c9b9;
+      }
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+      .image-note {
+        position: absolute;
+        right: 24px;
+        bottom: 24px;
+        background: rgba(255, 253, 248, 0.92);
+        padding: 15px 19px;
+        font-family: "Playfair Display", serif;
+        font-size: 17px;
+        color: var(--wine-dark);
+      }
+      .intro {
+        text-align: center;
+        width: min(700px, calc(100% - 40px));
+        margin: 0 auto 76px;
+      }
+      .intro h2 {
+        font-size: clamp(34px, 4vw, 48px);
+        line-height: 1.15;
+        margin: 14px 0;
+      }
+      .intro p {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0;
+      }
+      .categories {
+        width: min(1180px, calc(100% - 48px));
+        margin: 0 auto 100px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+      }
+      .category {
+        position: relative;
+        height: 310px;
+        overflow: hidden;
+        background: #e3d8ca;
+      }
+      .category img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s;
+      }
+      .category:hover img {
+        transform: scale(1.06);
+      }
+      .category:after {
+        content: "";
+        position: absolute;
+        inset: 35% 0 0;
+        background: linear-gradient(transparent, rgba(28, 20, 19, 0.68));
+      }
+      .category-label {
+        position: absolute;
+        z-index: 1;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+      }
+      .category-label small {
+        display: block;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+      .category-label strong {
+        font:
+          24px "Playfair Display",
+          serif;
+        font-weight: 500;
+      }
+      .quote-band {
+        background: #e9dfd3;
+        padding: 75px 24px;
+        text-align: center;
+        margin-bottom: 95px;
+      }
+      .quote-band blockquote {
+        max-width: 760px;
+        margin: 0 auto;
+        font:
+          clamp(27px, 4vw, 42px)/1.3 "Playfair Display",
+          serif;
+        letter-spacing: -0.025em;
+        color: var(--wine-dark);
+      }
+      .quote-band p {
+        margin: 18px 0 0;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .contact {
+        width: min(1060px, calc(100% - 48px));
+        margin: 0 auto 100px;
+        padding: clamp(36px, 6vw, 70px);
+        background: var(--wine-dark);
+        color: #fff8f1;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 20px;
+      }
+      .contact:before,
+      .contact:after {
+        content: "✳";
+        position: absolute;
+        color: rgba(255, 255, 255, 0.09);
+        font-size: 150px;
+      }
+      .contact:before {
+        top: -50px;
+        left: 20px;
+      }
+      .contact:after {
+        bottom: -80px;
+        right: 25px;
+      }
+      .contact .eyebrow {
+        color: #e5c6c2;
+      }
+      .contact h2 {
+        font-size: clamp(37px, 5vw, 57px);
+        line-height: 1.1;
+        margin: 17px 0;
+      }
+      .contact p {
+        max-width: 580px;
+        margin: 0 auto 28px;
+        color: rgba(255, 248, 241, 0.76);
+        font-size: 14px;
+      }
+      .contact .button {
+        background: #f7f1e8;
+        color: var(--wine-dark);
+        border-color: #f7f1e8;
+      }
+      .contact .button:hover {
+        background: white;
+      }
+      .social-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .social-links a {
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 10px 16px;
+        font-size: 10px;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        border-radius: 20px;
+      }
+      .social-links a:hover {
+        background: rgba(255, 255, 255, 0.12);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 24px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 11px;
+      }
+      footer strong {
+        color: var(--wine);
+        font-family: "Playfair Display", serif;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      @media (max-width: 850px) {
+        nav {
+          gap: 15px;
+        }
+        .hero {
+          grid-template-columns: 1fr 1fr;
+          min-height: 520px;
+        }
+        .hero-image {
+          min-height: 520px;
+        }
+        .hero-copy {
+          padding: 38px;
+        }
+        .categories {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        header {
+          height: 75px;
+          width: calc(100% - 32px);
+        }
+        nav {
+          display: none;
+        }
+        .nav-cta {
+          padding: 10px 12px;
+          font-size: 9px;
+        }
+        .hero {
+          width: calc(100% - 24px);
+          margin-top: 5px;
+          grid-template-columns: 1fr;
+        }
+        .hero-copy {
+          padding: 48px 30px;
+        }
+        h1 {
+          font-size: 54px;
+        }
+        .hero-image {
+          min-height: 380px;
+        }
+        .categories {
+          width: calc(100% - 24px);
+          gap: 10px;
+        }
+        .category {
+          height: 230px;
+        }
+        .category-label {
+          left: 13px;
+          bottom: 14px;
+        }
+        .category-label strong {
+          font-size: 20px;
+        }
+        .contact {
+          width: calc(100% - 24px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-head">
+    <div class="announcement">
+      <marquee behavior="20px" direction="left">A little corner of the internet for people who love books</marquee>
+    </div>
+
+    <header>
+      <a class="logo" href="#top">Book <span style="color: red;">Lover.</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#about">Our little story</a>
+        <a href="#collections">The bookish world</a>
+        <a href="#connect">Say hello</a>
+      </nav>
+      <a class="nav-cta" href="#connect">Stay connected ↗</a>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <span  class="eyebrow">For the love of all things books</span>
+          <h1>Your happy<br />place, <em style="color: red;">book lover.</em></h1>
+          <p>
+            Shop books, bookmarks, book sleeves, tote bags &amp; more! Find
+            unique bookish items for every reader, from classics to accessories,
+            all in one place. A perfect place for the book lover.
+          </p>
+          <a class="button" href="#connect">Keep in touch <span>↗</span></a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="tadeusz-zachwieja-Lh0D81wBge4-unsplash.webp"
+            alt="A beautiful stack of books in a warm reading space"
+          />
+          <div class="image-note" style="color: red;">Stories stay with us.</div>
+        </div>
+      </section>
+      </div>
+
+      <section class="intro" id="about">
+        <span class="eyebrow">A note from our little world</span>
+        <h2>Once a book lover,<br />always a book lover.</h2>
+        <p>
+          This space may be turning a page, but the love for stories, thoughtful
+          details and all things bookish is here to stay. Thank you for being
+          part of our story.
+        </p>
+      </section>
+
+      <section
+        class="categories"
+        id="collections"
+        aria-label="Bookish favourites"
+      >
+        <article class="category">
+          <img
+            src="photo-1544947950-fa07a98d237f-unsplash.webp"
+            alt="Books and reading"
+          />
+          <div class="category-label">
+            <small>For every kind of reader</small><strong>Books</strong>
+          </div>
+        </article>
+        <article class="category">
+          <img
+            src="photo-1507842217343-583bb7270b66-unsplash.webp"
+            alt="A cosy library full of books"
+          />
+          <div class="category-label">
+            <small>Little reading treasures</small><strong>Bookmarks</strong>
+          </div>
+        </article>
+        <article class="category">
+          <img
+            src="photo-1519682337058-a94d519337bc-unsplash.webp"
+            alt="Cosy books and soft textures"
+          />
+          <div class="category-label">
+            <small>Keep your reads cosy</small><strong>Book sleeves</strong>
+          </div>
+        </article>
+        <article class="category">
+          <img
+            src="photo-1590874103328-eac38a683ce7-unsplash.webp"
+            alt="A stylish everyday tote bag"
+          />
+          <div class="category-label">
+            <small>Carry your little world</small
+            ><strong>Tote bags &amp; more</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="quote-band">
+        <blockquote>
+          “I have lived a thousand lives and loved a thousand loves. I’ve walked
+          on distant worlds and seen the end of time.”
+        </blockquote>
+        <p>For the readers who know</p>
+      </section>
+
+      <section class="contact" id="connect">
+        <span class="eyebrow">The story doesn't end here</span>
+        <h2>Still looking for<br />something lovely?</h2>
+        <p>
+          Our online shop is taking a little pause, but you can still reach out
+          for enquiries and availability. Send us a message and let's stay
+          connected.
+        </p>
+        <a
+          class="button"
+          id="whatsappLink"
+          href="https://wa.me/447828612283"
+          target="_blank"
+          rel="noopener"
+          >Chat with us on WhatsApp ↗</a
+        >
+        <div class="social-links">
+          <a
+            id="instagramLink"
+            href="https://www.instagram.com/binish.k/"
+            target="_blank"
+            rel="noopener"
+            >Instagram ↗</a
+          >
+          <a
+            id="facebookLink"
+            href="https://www.facebook.com/BooksLoverr/"
+            target="_blank"
+            rel="noopener"
+            >Facebook ↗</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <strong>the bookish edit.</strong><br />
+      Made with love, for the love of reading. © <span id="year"></span>
+    </footer>
+
+    <script>
+      // CUSTOMISE THESE THREE VALUES BEFORE PUBLISHING:
+      const CONTACT = {
+        whatsapp: "447828612283", // Country code + number, digits only. Example: 923001234567
+        instagram: "https://www.instagram.com/binish.k/",
+        facebook: "https://www.facebook.com/BooksLoverr/",
+      };
+
+      document.getElementById("whatsappLink").href =
+        `https://wa.me/${CONTACT.whatsapp}?text=${encodeURIComponent("Hi! I'd love to ask about your bookish items.")}`;
+      document.getElementById("instagramLink").href = CONTACT.instagram;
+      document.getElementById("facebookLink").href = CONTACT.facebook;
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
